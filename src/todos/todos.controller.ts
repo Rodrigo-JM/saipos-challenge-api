@@ -11,24 +11,24 @@ export class TodosController {
   constructor(private todosService: TodosService) {}
 
   @Get()
-  async getTodos(): Promise<TodoDto[]> {
+  async getTodos(): Promise<TodoDto[] | Error> {
     return await this.todosService.findAll();
   }
 
   @Post()
-  async createTodo(@Body() params: CreateTodoDto): Promise<TodoDto> {
+  async createTodo(@Body() params: CreateTodoDto): Promise<TodoDto | Error> {
     return await this.todosService.create(params);
   }
 
   @Put()
   async changeTodoStatus(
     @Body() params: ChangeTodoStatusDto,
-  ): Promise<TodoDto> {
+  ): Promise<TodoDto | Error> {
     return await this.todosService.changeTodoStatus(params);
   }
 
   @Post('/fill-empty-tasks')
-  async fillEmptyTasks(): Promise<any[]> {
+  async fillEmptyTasks(): Promise<any[] | Error> {
     return await this.todosService.fillEmptyTasks();
   }
 }

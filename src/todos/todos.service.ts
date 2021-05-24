@@ -35,7 +35,6 @@ export class TodosService {
             email: 'eu@me.com',
             defaultAdmin: true,
           };
-          console.log(supeHr);
           return await this.create(newTodoParams);
         }),
       );
@@ -62,7 +61,6 @@ export class TodosService {
         this.todoFlowRepository.save(newTodoFlow);
         todo.statusHistory = [...todo.statusHistory, newTodoFlow];
 
-        console.log(todo);
         return this.todoRepository.save(todo);
       }
 
@@ -101,19 +99,21 @@ export class TodosService {
 
       if (!validEmail.format_valid) {
         throw Error(
-          todoConstants.ERROR_MESSAGES.INVALID_EMAIL_FORMAT +
+          `${todoConstants.ERROR_MESSAGES.INVALID_EMAIL_FORMAT}${
             validEmail.did_you_mean
-            ? ' Você quis dizer: ' + validEmail.did_you_mean
-            : '',
+              ? ' Você quis dizer: ' + validEmail.did_you_mean + '?'
+              : ''
+          }`,
         );
       }
 
       if (!validEmail.mx_found) {
         throw Error(
-          todoConstants.ERROR_MESSAGES.EMAIL_ADDRESS_NOT_FOUND +
+          `${todoConstants.ERROR_MESSAGES.EMAIL_ADDRESS_NOT_FOUND}${
             validEmail.did_you_mean
-            ? ' Você quis dizer: ' + validEmail.did_you_mean
-            : '',
+              ? ' Você quis dizer: ' + validEmail.did_you_mean + '?'
+              : ''
+          }`,
         );
       }
 
