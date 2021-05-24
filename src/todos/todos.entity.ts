@@ -34,5 +34,5 @@ export class Todo extends BaseEntity {
   admin: Admin;
 
   @OneToMany(() => TodoFlow, (todoFlow) => todoFlow.todo)
-  statusHistory: TodoFlow;
+  statusHistory: TodoFlow[];
 }

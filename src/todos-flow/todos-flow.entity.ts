@@ -13,7 +13,7 @@ export class TodoFlow extends BaseEntity {
   id: number;
 
   @Column()
-  status: string;
+  status: number;
 
   @ManyToOne(() => Todo, (todo) => todo.statusHistory)
   todo: Todo;

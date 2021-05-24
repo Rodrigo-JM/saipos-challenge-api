@@ -6,6 +6,7 @@ import { TodosController } from './todos.controller';
 import { TodoRepository } from './todos.repository';
 import { TodosService } from './todos.service';
 import { TodoFlowRepository } from 'src/todos-flow/todos-flow.repository';
+import { CheckEmailService } from 'src/shared/services/check-email/check-email.service';
 
 @Module({
   imports: [

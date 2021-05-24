@@ -1,6 +1,7 @@
 import * as dotenv from 'dotenv';
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
-
+import { Injectable } from '@nestjs/common';
+@Injectable()
 export class ConfigService {
   constructor() {
     dotenv.config({
@@ -31,6 +32,7 @@ export class ConfigService {
       password: this.get('DATABASE_PASSWORD'),
       database: this.get('DATABASE_DATABASE'),
       logging: true,
+      synchronize: true,
     };
   }
 }

@@ -1,7 +1,3 @@
-class GetTodosOutputDto {
-  todos: TodoDto[];
-}
-
 class TodoDto {
   name: string;
   status: number;
@@ -9,3 +5,5 @@ class TodoDto {
   description: string;
   createdAt: Date;
 }
+
+export { TodoDto };
