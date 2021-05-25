@@ -5,6 +5,7 @@ import { SharedModule } from './shared/shared.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+  app.enableCors();
   const configService = app.select(SharedModule).get(ConfigService);
 
   await app.listen(configService.getNumber('PORT'));
