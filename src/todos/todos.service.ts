@@ -30,7 +30,7 @@ export class TodosService {
       return Promise.all(
         supeHr.map(async ({ data }) => {
           const newTodoParams: CreateTodoDto = {
-            description: data['full-name'],
+            description: data['full-name'] || data['name'] || 'Superhero',
             name: 'Eu',
             email: 'eu@me.com',
             defaultAdmin: true,
